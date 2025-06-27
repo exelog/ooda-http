@@ -6,39 +6,37 @@
 import random
 import time
 
-# === Phase 1: Observe ===
+# === Observe Phase ===
 def observe_request():
-    # Simulated request metadata
+    # Simulate observation of HTTP request features
     return {
-        "ip": "192.168.1.23",
-        "user_agent": "curl/8.5.0",
-        "request_path": "/api/data",
-        "request_size_kb": random.randint(1, 500),  # simulate size
-        "tls_handshake_time_ms": random.randint(30, 300)
+        "ip": f"192.168.0.{random.randint(1, 255)}",
+        "headers": {"User-Agent": random.choice(["Mozilla", "curl", "bot"])},
+        "tls_version": random.choice(["TLS 1.2", "TLS 1.3"]),
+        "payload_size": random.randint(100, 5000),
     }
 
-# === Phase 2: Orient ===
+# === Orient Phase ===
 def analyze_threat(request):
-    # Simple risk model based on size and handshake time
     score = 0
-    if request["request_size_kb"] > 400:
+    if "bot" in request["headers"].get("User-Agent", "").lower():
         score += 3
-    if request["tls_handshake_time_ms"] > 250:
+    if request["payload_size"] > 4000:
         score += 2
-    if "curl" in request["user_agent"]:
+    if request["tls_version"] == "TLS 1.2":
         score += 1
-    return score  # Higher is riskier
+    return score
 
-# === Phase 3: Decide ===
-def decide_action(threat_score):
-    if threat_score >= 5:
+# === Decide Phase ===
+def decide_action(score):
+    if score >= 5:
         return "block"
-    elif threat_score >= 3:
+    elif score >= 3:
         return "rotate_key"
     else:
         return "allow"
 
-# === Phase 4: Act ===
+# === Act Phase ===
 def act(action):
     if action == "block":
         print("⚠️ Blocking request.")
