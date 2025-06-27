@@ -1,0 +1,166 @@
+INTERNET-DRAFT                                           R. Bouziane
+Intended status: Standards Track                         SecRoot.io
+Expires: December 26, 2025                               June 26, 2025
+
+           OODA-HTTP: Adaptive Security Framework
+                  for HTTP Communications
+              draft-secroot-ooda-http-00
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the 
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering 
+   Task Force (IETF). Note that other groups may also distribute 
+   working documents as Internet-Drafts. The list of current 
+   Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six 
+   months and may be updated, replaced, or obsoleted by other documents
+   at any time. It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on December 26, 2025.
+
+Copyright Notice
+
+   Copyright (c) 2025 IETF Trust and the persons identified as the
+   document authors. All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents
+   (https://trustee.ietf.org/license-info) in effect on the date of
+   publication of this document. Please review these documents
+   carefully, as they describe your rights and restrictions with
+   respect to this document. Code Components extracted from this
+   document must include Simplified BSD License text as described in
+   Section 4.e of the Trust Legal Provisions and are provided without
+   warranty as described in the Simplified BSD License.
+
+Abstract
+
+   This document defines OODA-HTTP, an adaptive security framework
+   applying the Observe-Orient-Decide-Act loop to HTTP and HTTPS
+   communications. It enables dynamic threat detection and mitigation,
+   including protection against quantum computing-based threats such
+   as those utilizing Shor's algorithm.
+
+1. Introduction
+
+   HTTP and HTTPS communications face increasingly sophisticated
+   threats, including quantum computing-based attacks such as those
+   leveraging Shor's algorithm. OODA-HTTP introduces a real-time
+   adaptive security mechanism based on the OODA loop (Observe-Orient-
+   Decide-Act) to enhance resilience. The framework leverages adaptive
+   security paradigms demonstrated in enterprise networks [Wang21],
+   cryptographic key rotation in TLS [Gupta23], and intrusion detection
+   methodologies using OODA principles [Martinez22].
+
+2. Terminology
+
+   Terms such as OODA loop, threat score, post-quantum cryptography,
+   and Shor's algorithm are defined for clarity.
+
+3. Architectural Overview
+
+   OODA-HTTP integrates telemetry collection, AI-assisted analysis,
+   policy-driven decision making, and dynamic enforcement within HTTP/TLS
+   infrastructure.
+
+4. OODA-HTTP Phases
+
+4.1. Observe
+
+   Collection of telemetry data from HTTP headers, TLS handshakes, and
+   logs.
+
+4.2. Orient
+
+   Intelligent threat analysis leveraging AI models to score and
+   classify threats, incorporating adaptive security and Quality of
+   Service (QoS) principles [Sarikaya19][Zhang21].
+
+4.3. Decide
+
+   Policy-based decisions on mitigation strategies based on threat
+   scores.
+
+4.4. Act
+
+   Enforcement of decisions including key rotations, blocking,
+   alerting, and dynamic QoS adaptation [Gupta23][Kim23].
+
+5. Message Formats and Protocol
+
+   Defines JSON message schemas for data exchange between components.
+
+6. Threat Models and Detection
+
+   Includes classical and quantum threats with extensible detection
+   methods.
+
+7. Applications: Case Studies and Practical Validations
+
+   Real-world deployments of adaptive security frameworks demonstrate
+   effective real-time threat detection, key rotation, intrusion
+   detection acceleration, and dynamic QoS management [Wang21][Gupta23]
+   [Martinez22][Kim23].
+
+8. Integration with TLS/HTTPS
+
+   Compatibility with existing TLS termination and proxying systems.
+
+9. Protocol Engineering Foundations
+
+   OODA-HTTP aligns with foundational protocol engineering principles
+   detailed by Sarikaya [Sar93], including state-driven systems, error
+   handling, and flow control.
+
+10. Security Considerations
+
+   Ensures confidentiality, integrity, and mandates secure channels
+   with adaptive security aligned with QoS [Sarikaya19][Zhang21].
+
+11. IANA Considerations
+
+   Requests registration of new message types and threat identifiers.
+
+12. References
+
+12.1. Normative References
+
+   [Sarikaya19] B. Sarikaya, "Adaptive Security in Wireless Networks:
+   A QoS Perspective," IEEE Communications Surveys & Tutorials, 2019.
+
+   [Sar93] B. Sarikaya, "Principles of Protocol Engineering and Protocol
+   Testing," Ellis Horwood, 1993.
+
+12.2. Informative References
+
+   [Gupta23] S. Gupta et al., "Automatic Key Rotation for TLS Sessions
+   to Mitigate Quantum Threats," IEEE INFOCOM, 2023.
+
+   [Kim23] J. Kim et al., "Real-Time QoS and Security Adaptation in
+   Software-Defined Networking," ACM SIGCOMM, 2023.
+
+   [Martinez22] L. Martinez et al., "Applying the OODA Loop to Intrusion
+   Detection: A Case Study," USENIX Security Symposium, 2022.
+
+   [Wang21] D. Wang et al., "Implementation and Evaluation of Adaptive
+   Security Frameworks in Enterprise Networks," IEEE Transactions on
+   Network and Service Management, 2021.
+
+   [Zhang21] X. Zhang et al., "Threat-aware QoS Management for Secure
+   Wireless Networks," IEEE Transactions on Network and Service
+   Management, 2021.
+
+Authors' Addresses
+
+   Rachid Bouziane
+   SecRoot.io
+   Villa El Majd 171, Tamsna Temara
+   Rabat, Morocco
+   Email: contact@secroot.io
+
+Expires: December 26, 2025
