@@ -1,0 +1,1 @@
+print("✅ Python fonctionne parfaitement dans ce terminal.")

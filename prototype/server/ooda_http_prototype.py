@@ -1,62 +1,70 @@
 
-# OODA-HTTP: Minimal Prototype in Python
-# Language: Python 3.9+
-# Goal: Simulate a basic Observe-Orient-Decide-Act loop on HTTP traffic
 
+import logging
+from logging.handlers import RotatingFileHandler
+from flask import Flask, request, jsonify
 import random
+import threading
 import time
 
-# === Observe Phase ===
-def observe_request():
-    # Simulate observation of HTTP request features
-    return {
-        "ip": f"192.168.0.{random.randint(1, 255)}",
-        "headers": {"User-Agent": random.choice(["Mozilla", "curl", "bot"])},
-        "tls_version": random.choice(["TLS 1.2", "TLS 1.3"]),
-        "payload_size": random.randint(100, 5000),
-    }
+app = Flask(__name__)
 
-# === Orient Phase ===
-def analyze_threat(request):
+# === Logger Setup ===
+logger = logging.getLogger("OODA_HTTP_Server")
+logger.setLevel(logging.INFO)
+handler = RotatingFileHandler("ooda_http_server.log", maxBytes=100000, backupCount=5)
+formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+handler.setFormatter(formatter)
+logger.addHandler(handler)
+
+# === Threat analysis logic ===
+def analyze_threat(req_data):
     score = 0
-    if "bot" in request["headers"].get("User-Agent", "").lower():
+    user_agent = req_data.get("headers", {}).get("User-Agent", "").lower()
+    if "bot" in user_agent:
         score += 3
-    if request["payload_size"] > 4000:
+    if req_data.get("payload_size", 0) > 4000:
         score += 2
-    if request["tls_version"] == "TLS 1.2":
+    if req_data.get("tls_version", "") == "TLS 1.2":
         score += 1
     return score
 
-# === Decide Phase ===
 def decide_action(score):
     if score >= 5:
         return "block"
     elif score >= 3:
         return "rotate_key"
-    else:
-        return "allow"
+    return "allow"
 
-# === Act Phase ===
-def act(action):
-    if action == "block":
-        print("⚠️ Blocking request.")
-    elif action == "rotate_key":
-        print("🔁 Rotating encryption key.")
-    else:
-        print("✅ Request allowed.")
+@app.route("/analyze", methods=["POST"])
+def analyze():
+    req_data = request.get_json()
+    score = analyze_threat(req_data)
+    decision = decide_action(score)
+    log_msg = f"Request: {req_data} | Score: {score} | Decision: {decision}"
+    logger.info(log_msg)
+    print(log_msg)  # Display in terminal
+    return jsonify({"score": score, "decision": decision})
 
-# === Simulate the OODA loop ===
-def ooda_loop():
-    for _ in range(3):  # simulate 3 incoming requests
-        print("\n--- New Request ---")
-        request = observe_request()
-        print(f"Observed: {request}")
-        score = analyze_threat(request)
-        print(f"Threat Score: {score}")
-        action = decide_action(score)
-        print(f"Decision: {action}")
-        act(action)
-        time.sleep(1)
+# === Optional: simulate traffic for local testing ===
+def simulate_requests():
+    while True:
+        req = {
+            "ip": f"192.168.0.{random.randint(1, 255)}",
+            "headers": {"User-Agent": random.choice(["Mozilla", "curl", "bot"])},
+            "tls_version": random.choice(["TLS 1.2", "TLS 1.3"]),
+            "payload_size": random.randint(100, 5000),
+        }
+        score = analyze_threat(req)
+        decision = decide_action(score)
+        log_msg = f"[SIMULATION] Request: {req} | Score: {score} | Decision: {decision}"
+        logger.info(log_msg)
+        print(log_msg)
+        time.sleep(5)
 
 if __name__ == "__main__":
-    ooda_loop()
+    logger.info("🚀 Starting OODA-HTTP server on http://localhost:8000")
+    print("🚀 OODA-HTTP server running at http://localhost:8000")
+    # Optional simulation thread (disable if unwanted)
+    # threading.Thread(target=simulate_requests, daemon=True).start()
+    app.run(port=8000)

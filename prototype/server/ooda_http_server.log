@@ -1,0 +1,23 @@
+2025-06-27 20:53:05,255 - INFO - Starting OODA-HTTP server on port 8000...
+2025-06-27 20:54:49,960 - INFO - Received request: {'headers': {'User-Agent': 'ClientBot/1.0'}, 'ip': '192.168.1.50'}
+2025-06-27 20:54:49,961 - INFO - Threat score: 3, Action: rotate_key
+2025-06-27 20:55:27,489 - INFO - Received request: {'headers': {'User-Agent': 'ClientBot/1.0'}, 'ip': '192.168.1.50'}
+2025-06-27 20:55:27,489 - INFO - Threat score: 3, Action: rotate_key
+2025-06-27 21:22:40,538 - INFO - Request: {'headers': {'User-Agent': 'ClientBot/1.0'}, 'ip': '192.168.1.50'} | Score: 3 | Decision: rotate_key
+2025-06-27 21:23:20,963 - INFO - Request: {'headers': {'User-Agent': 'ClientBot/1.0'}, 'ip': '192.168.1.50'} | Score: 3 | Decision: rotate_key
+2025-06-27 21:29:19,271 - INFO - Request: {'ip': '192.168.0.175', 'headers': {'User-Agent': 'bot'}, 'tls_version': 'TLS 1.3', 'payload_size': 701} | Score: 3 | Decision: rotate_key
+2025-06-27 21:29:22,312 - INFO - Request: {'ip': '192.168.0.168', 'headers': {'User-Agent': 'curl'}, 'tls_version': 'TLS 1.2', 'payload_size': 306} | Score: 1 | Decision: allow
+2025-06-27 21:29:25,355 - INFO - Request: {'ip': '192.168.0.178', 'headers': {'User-Agent': 'bot'}, 'tls_version': 'TLS 1.3', 'payload_size': 3278} | Score: 3 | Decision: rotate_key
+2025-06-27 21:32:55,171 - INFO - Request: {'ip': '192.168.0.3', 'headers': {'User-Agent': 'curl'}, 'tls_version': 'TLS 1.2', 'payload_size': 3547} | Score: 1 | Decision: allow
+2025-06-27 21:32:58,211 - INFO - Request: {'ip': '192.168.0.216', 'headers': {'User-Agent': 'Mozilla'}, 'tls_version': 'TLS 1.2', 'payload_size': 4856} | Score: 3 | Decision: rotate_key
+2025-06-27 21:33:01,256 - INFO - Request: {'ip': '192.168.0.185', 'headers': {'User-Agent': 'bot'}, 'tls_version': 'TLS 1.2', 'payload_size': 923} | Score: 4 | Decision: rotate_key
+2025-06-27 23:23:32,027 - INFO - Request: {'ip': '192.168.0.250', 'headers': {'User-Agent': 'bot'}, 'tls_version': 'TLS 1.3', 'payload_size': 3616} | Score: 3 | Decision: rotate_key
+2025-06-27 23:23:36,066 - INFO - Request: {'ip': '192.168.0.12', 'headers': {'User-Agent': 'Mozilla'}, 'tls_version': 'TLS 1.2', 'payload_size': 3411} | Score: 1 | Decision: allow
+2025-06-27 23:23:40,107 - INFO - Request: {'ip': '192.168.0.13', 'headers': {'User-Agent': 'Mozilla'}, 'tls_version': 'TLS 1.2', 'payload_size': 495} | Score: 1 | Decision: allow
+2025-06-27 23:23:44,146 - INFO - Request: {'ip': '192.168.0.90', 'headers': {'User-Agent': 'bot'}, 'tls_version': 'TLS 1.2', 'payload_size': 3327} | Score: 4 | Decision: rotate_key
+2025-06-27 23:23:48,181 - INFO - Request: {'ip': '192.168.0.222', 'headers': {'User-Agent': 'bot'}, 'tls_version': 'TLS 1.3', 'payload_size': 2729} | Score: 3 | Decision: rotate_key
+2025-06-27 23:23:52,216 - INFO - Request: {'ip': '192.168.0.88', 'headers': {'User-Agent': 'Mozilla'}, 'tls_version': 'TLS 1.2', 'payload_size': 2037} | Score: 1 | Decision: allow
+2025-06-27 23:23:56,262 - INFO - Request: {'ip': '192.168.0.224', 'headers': {'User-Agent': 'bot'}, 'tls_version': 'TLS 1.2', 'payload_size': 4038} | Score: 6 | Decision: block
+2025-06-27 23:24:00,294 - INFO - Request: {'ip': '192.168.0.159', 'headers': {'User-Agent': 'curl'}, 'tls_version': 'TLS 1.2', 'payload_size': 4781} | Score: 3 | Decision: rotate_key
+2025-06-27 23:24:04,341 - INFO - Request: {'ip': '192.168.0.209', 'headers': {'User-Agent': 'Mozilla'}, 'tls_version': 'TLS 1.2', 'payload_size': 940} | Score: 1 | Decision: allow
+2025-06-27 23:24:08,370 - INFO - Request: {'ip': '192.168.0.128', 'headers': {'User-Agent': 'curl'}, 'tls_version': 'TLS 1.2', 'payload_size': 675} | Score: 1 | Decision: allow
